@@ -1,3 +1,6 @@
 [submodule "lib/imgui"]
 	path = lib/imgui
 	url = github:ocornut/imgui
+[submodule "lib/json-parser"]
+	path = lib/json-parser
+	url = github:philsupertramp/json-parser

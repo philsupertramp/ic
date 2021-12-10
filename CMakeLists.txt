@@ -21,6 +21,9 @@ set(SOURCE_FILES
         src/main.cpp
         src/texture.h
 
+        lib/json-parser/JsonFile.cpp
+        lib/json-parser/JsonFile.h
+
         lib/stb_image/stb_image.h
 
         lib/imgui/imgui.cpp
@@ -43,9 +46,12 @@ set(SOURCE_FILES
         lib/imgui/backends/imgui_impl_glfw.h
         )
 include_directories(lib/imgui)
-include_directories(lib/stb_image)
+include_directories(lib/stb_image
+        lib/json-parser)
+
+#add_subdirectory(lib/json-parser)
 
 add_executable(ic ${SOURCE_FILES})
 
-target_link_libraries(ic glfw OpenGL::GL m ${CMAKE_DL_LIBS})
+target_link_libraries(ic LINK_PUBLIC glfw OpenGL::GL m ${CMAKE_DL_LIBS})
 target_include_directories(ic PRIVATE lib/imgui)
